@@ -5,10 +5,10 @@ from datetime import datetime
 from playwright.async_api import Playwright, async_playwright
 import os
 import asyncio
-from uploader.tk_uploader.tk_config import Tk_Locator
-from utils.base_social_media import set_init_script
-from utils.files_times import get_absolute_path
-from utils.log import tiktok_logger
+from social_upload.uploader.tk_uploader.tk_config import Tk_Locator
+from social_upload.utils.base_social_media import set_init_script
+from social_upload.utils.files_times import get_absolute_path
+from social_upload.utils.log import tiktok_logger
 
 
 async def cookie_auth(account_file):

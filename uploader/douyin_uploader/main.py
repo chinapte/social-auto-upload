@@ -5,9 +5,9 @@ from playwright.async_api import Playwright, async_playwright, Page
 import os
 import asyncio
 
-from conf import LOCAL_CHROME_PATH
-from utils.base_social_media import set_init_script
-from utils.log import douyin_logger
+from social_upload.conf import LOCAL_CHROME_PATH
+from social_upload.utils.base_social_media import set_init_script
+from social_upload.utils.log import douyin_logger
 
 
 async def cookie_auth(account_file):
@@ -180,7 +180,7 @@ class DouYinVideo(object):
         await self.set_thumbnail(page, self.thumbnail_path)
 
         # 更换可见元素
-        await self.set_location(page, "杭州市")
+        await self.set_location(page, "北京市")
 
         # 頭條/西瓜
         third_part_element = '[class^="info"] > [class^="first-part"] div div.semi-switch'

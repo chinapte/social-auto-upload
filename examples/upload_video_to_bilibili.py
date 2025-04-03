@@ -1,18 +1,21 @@
 import time
 from pathlib import Path
 
-from uploader.bilibili_uploader.main import read_cookie_json_file, extract_keys_from_json, random_emoji, BilibiliUploader
-from conf import BASE_DIR
-from utils.constant import VideoZoneTypes
-from utils.files_times import generate_schedule_time_next_day, get_title_and_hashtags
+from social_upload.uploader.bilibili_uploader.main import read_cookie_json_file, extract_keys_from_json, random_emoji, BilibiliUploader
+from social_upload.conf import BASE_DIR
+from social_upload.utils.constant import VideoZoneTypes
+from social_upload.utils.files_times import generate_schedule_time_next_day, get_title_and_hashtags
 
 if __name__ == '__main__':
     filepath = Path(BASE_DIR) / "videos"
     # how to get cookie, see the file of get_bilibili_cookie.py.
     account_file = Path(BASE_DIR / "cookies" / "bilibili_uploader" / "account.json")
     if not account_file.exists():
-        print(f"{account_file.name} 配置文件不存在")
-        exit()
+        #print(f"{account_file.name} 配置文件不存在")
+        account_file = Path(BASE_DIR / "uploader" / "bilibili_uploader" / "account.json")
+        if not account_file.exists():
+            print(f"{account_file.name} 配置文件不存在")
+            exit()
     cookie_data = read_cookie_json_file(account_file)
     cookie_data = extract_keys_from_json(cookie_data)
 

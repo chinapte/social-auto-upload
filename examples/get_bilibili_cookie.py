@@ -1,2 +1,2 @@
 # cd uploader/bilibili_uploader
-# biliup.exe -u account.json login
+# .\biliup.exe -u account.json login

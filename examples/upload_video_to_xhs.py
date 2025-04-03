@@ -4,9 +4,9 @@ from time import sleep
 
 from xhs import XhsClient
 
-from conf import BASE_DIR
-from utils.files_times import generate_schedule_time_next_day, get_title_and_hashtags
-from uploader.xhs_uploader.main import sign_local, beauty_print
+from social_upload.conf import BASE_DIR
+from social_upload.utils.files_times import generate_schedule_time_next_day, get_title_and_hashtags
+from social_upload.uploader.xhs_uploader.main import sign_local, beauty_print
 
 config = configparser.RawConfigParser()
 config.read(Path(BASE_DIR / "uploader" / "xhs_uploader" / "accounts.ini"))
