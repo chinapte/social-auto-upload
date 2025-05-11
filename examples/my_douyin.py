@@ -57,7 +57,8 @@ def publish_video(video_path):
     # else:
     app = DouYinVideo(title, filepath, tags, publish_datetime, account_file)
 
-    asyncio.run(app.main(), debug=False)
+    app.main()
+    #asyncio.run(app.main(), debug=False)
 
 
 if __name__ == '__main__':

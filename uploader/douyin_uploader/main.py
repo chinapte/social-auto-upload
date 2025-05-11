@@ -9,10 +9,11 @@ from social_upload.conf import LOCAL_CHROME_PATH
 from social_upload.utils.base_social_media import set_init_script
 from social_upload.utils.log import douyin_logger
 
-
+REMOTE_WS_ENDPOINT = "ws://localhost:2712/1b55a61c530da40d2a0563e42bfe502d"
 async def cookie_auth(account_file):
     async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=True)
+        browser = playwright.chromium.connect(REMOTE_WS_ENDPOINT)
+        #browser = await playwright.chromium.launch(headless=True)
         context = await browser.new_context(storage_state=account_file)
         context = await set_init_script(context)
         # 创建一个新的页面
